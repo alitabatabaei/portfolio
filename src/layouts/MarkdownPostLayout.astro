@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const { frontmatter } = Astro.props;
+const { title, image, author, pubDate } = frontmatter;
+// const date = pubDate.toString().slice(0, 10).replace(/-/g, '/');
+const localDate = new Date(pubDate).toDateString();
+---
+
+<BaseLayout pageTitle={title}>
+  <ul>
+    <li>Written by {author}</li>
+    <li>Published on: {localDate}</li>
+  </ul>
+  {image && <img src={image.url} alt={image.alt} />}
+  <hr />
+  <slot />
+</BaseLayout>

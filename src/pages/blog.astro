@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = 'My Astro Learning Blog';
+const posts = ['Post 1', 'Learning Astro'];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>This is where I will post about my journey learning Astro.</p>
+  <ul>
+    {
+      posts.map((title) => (
+        <li>
+          <a href={`/posts/${title.toLowerCase().replace(/ /g, '-')}/`}>{title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
