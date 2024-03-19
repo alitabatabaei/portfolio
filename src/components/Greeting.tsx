@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useState } from 'react';
 
 export default function Greeting({ messages }: { messages: string[] }) {
   const [idx, setIdx] = useState(randomIdx(messages.length));
